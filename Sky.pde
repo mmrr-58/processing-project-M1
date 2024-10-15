@@ -13,7 +13,7 @@ class Sky {
   }
 
   // Start the transition
-  void start() {
+  void change() {
     isTransitioning = true;
   }
 

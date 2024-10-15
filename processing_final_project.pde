@@ -1,5 +1,5 @@
 Sky sky;
-
+EventHandler eh = new EventHandler();
 void setup() {
   size(800, 800);
   sky = new Sky();
@@ -11,5 +11,5 @@ void draw() {
 }
 
 void mousePressed() {
-    sky.start();
+  eh.updatePositions();
 }
