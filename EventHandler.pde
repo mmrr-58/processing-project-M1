@@ -1,21 +1,16 @@
 class EventHandler {
-  int posX, posY;
+  Sky sky;  
 
   EventHandler() {
-    posX = 0;
-    posY = 0;
+    sky = new Sky();  // Initialize the sky 
   }
 
-  void updatePositions() {
-    posX = mouseX;
-    posY = mouseY;
-    event();
+  void triggerEvent() {
+    sky.change();  // Call the sky 
   }
-  void event() {
-    if (posX>=(8*width)/10) {
-      if (posY<=(2*height)/10) {
-        sky.change();
-      }
-    }
+
+  void updateSky() {
+    sky.update();    // Update sky 
+    sky.display();   // Display sky
   }
 }

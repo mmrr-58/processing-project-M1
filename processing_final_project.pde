@@ -1,15 +1,17 @@
-Sky sky;
-EventHandler eh = new EventHandler();
+EventHandler events;
+
 void setup() {
-  size(800, 800);
-  sky = new Sky();
+  size(800, 700);
+  events = new EventHandler();  // Initialize the EventHandler
 }
 
 void draw() {
-  sky.update();
-  sky.display();
+  events.updateSky();  
 }
 
-void mousePressed() {
-  eh.updatePositions();
+// Handle spacebar press to trigger the event
+void keyPressed() {
+  if (key == ' ') {  
+    events.triggerEvent();  
+  }
 }
