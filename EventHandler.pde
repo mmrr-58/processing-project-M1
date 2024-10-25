@@ -10,7 +10,7 @@ class EventHandler {
   }
 
   void updateSky() {
-    sky.update();    // Update sky 
+    boolean isDay = sky.update();    // Update sky and return time of day
     sky.display();   // Display sky
   }
 }
