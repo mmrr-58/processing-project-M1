@@ -6,7 +6,7 @@ void setup() {
 }
 
 void draw() {
-  events.display();  // Display and update the sky and door
+  events.display();  // Display and update the scene
 }
 
 // Handle key press to trigger events
@@ -16,5 +16,8 @@ void keyPressed() {
   }
   if (key == 'o') {
     events.triggerDoor(); // Pass the current isDay status to triggerDoor
+  }
+  if (key == 'l'){
+    events.toggleLights(); // 
   }
 }
