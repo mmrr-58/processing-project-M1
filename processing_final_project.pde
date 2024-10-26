@@ -1,21 +1,20 @@
 EventHandler events;
-Facade facade;
 
 void setup() {
   size(1000, 700);
-  events = new EventHandler();  // Initialize the EventHandler
-  facade = new Facade(width, height);  // Initialize the Facade
-  
+  events = new EventHandler(width, height);       // Initialize the EventHandler
 }
 
 void draw() {
-  events.updateSky();  
-  facade.display();
+  events.display();  // Display and update the sky and door
 }
 
-// Handle spacebar press to trigger the event
+// Handle key press to trigger events
 void keyPressed() {
-  if (key == ' ') {  
-    events.triggerEvent();  
+  if (key == ' ') {
+    events.triggerSky();  // Trigger the sky change when spacebar is pressed
+  }
+  if (key == 'o') {
+    events.triggerDoor(events.isDay); // Pass the current isDay status to triggerDoor
   }
 }

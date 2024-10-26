@@ -1,3 +1,4 @@
+
 class Facade {
   int sizeX, sizeY;
   int startY = 200;

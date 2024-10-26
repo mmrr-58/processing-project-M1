@@ -1,16 +1,34 @@
 class EventHandler {
-  Sky sky;  
+  Sky sky;
+  Door door;
+  Facade facade;
 
-  EventHandler() {
-    sky = new Sky();  // Initialize the sky 
+  boolean isDay;  // Track whether it's day or night
+
+  EventHandler(int sizeX, int sizeY) {
+    sky = new Sky();  // Initialize the sky
+    door = new Door(
+      ((sizeX / 10) * 4) + 30, sizeY - 310,
+      ((sizeX / 10) * 6) - 30, sizeY - 310,
+      ((sizeX / 10) * 6) - 30, 555,
+      ((sizeX / 10) * 4) + 30, 555);
+    facade = new Facade(sizeX, sizeY); // Initialize the Facade
   }
 
-  void triggerEvent() {
-    sky.change();  // Call the sky 
+  void display() {
+    isDay = sky.update();  // Update sky and check if it's day
+    sky.display();         // Display the sky
+    facade.display();      // Display the facade
+    door.display();        // Display the door
   }
 
-  void updateSky() {
-    boolean isDay = sky.update();    // Update sky and return time of day
-    sky.display();   // Display sky
+  void triggerSky() {
+    sky.change();  // Trigger sky change
+  }
+
+  void triggerDoor(boolean isDay) {
+    if (isDay) {
+      door.open();  // Open the door if it's daytime
+    }
   }
 }
