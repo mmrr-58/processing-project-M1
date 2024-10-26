@@ -6,12 +6,8 @@ class EventHandler {
   boolean isDay;  // Track whether it's day or night
 
   EventHandler(int sizeX, int sizeY) {
-    sky = new Sky();  // Initialize the sky
-    door = new Door(
-      ((sizeX / 10) * 4) + 30, sizeY - 310,
-      ((sizeX / 10) * 6) - 30, sizeY - 310,
-      ((sizeX / 10) * 6) - 30, 555,
-      ((sizeX / 10) * 4) + 30, 555);
+    sky = new Sky(sizeX, sizeY);  // Initialize the sky
+    door = new Door(((sizeX / 10) * 4) + 30, sizeY - 310, ((sizeX / 10) * 6) - 30, sizeY - 310, ((sizeX / 10) * 6) - 30, 555, ((sizeX / 10) * 4) + 30, 555);
     facade = new Facade(sizeX, sizeY); // Initialize the Facade
   }
 
@@ -24,9 +20,10 @@ class EventHandler {
 
   void triggerSky() {
     sky.change();  // Trigger sky change
+    door.closed(); // Close the door if it's nighttime
   }
 
-  void triggerDoor(boolean isDay) {
+  void triggerDoor() {
     if (isDay) {
       door.open();  // Open the door if it's daytime
     }

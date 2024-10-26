@@ -4,8 +4,12 @@ class Sky {
   boolean isTransitioning;
   boolean isDay;
   float rotation;
+  int sizeX, sizeY;
 
-  Sky() {
+
+  Sky(int sizeX, int sizeY) {
+    this.sizeX = sizeX;
+    this.sizeY = sizeY;
     day = color(#0471b0);
     night = color(#190036);
     rateChange = 0.0;
@@ -52,7 +56,7 @@ class Sky {
   void drawSunAndMoon() {
     // Rotate around the center
     pushMatrix();
-    translate(width/2, height/2);
+    translate(sizeX/2, sizeY/2);
     rotate(rotation);
     // Draw the sun
     noStroke();
@@ -65,7 +69,7 @@ class Sky {
     fill(#f5f5f5);
     ellipse(-400, 250, 100, 100);
     fill(#f5f5f5, 10);
-    ellipse(-400, 250, 150, 150);  
+    ellipse(-400, 250, 150, 150);
     popMatrix();
   }
 }

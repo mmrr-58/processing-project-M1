@@ -15,6 +15,6 @@ void keyPressed() {
     events.triggerSky();  // Trigger the sky change when spacebar is pressed
   }
   if (key == 'o') {
-    events.triggerDoor(events.isDay); // Pass the current isDay status to triggerDoor
+    events.triggerDoor(); // Pass the current isDay status to triggerDoor
   }
 }
