@@ -1,6 +1,6 @@
 class Door {
   PVector topLeft, topRight, bottomRight, bottomLeft;
-  PVector initialTopRight, initialBottomRight; // To store original coordinates
+  PVector initialTopRight, initialBottomRight; 
   boolean isOpening = false;
   boolean isClosing = false;
 
@@ -17,9 +17,9 @@ class Door {
   }
 
   void display() {
-    fill(200, 150, 50);  // Door color (adjust as needed)
+    fill(200, 150, 50);  // Door color
     noStroke();
-    quad(topLeft.x, topLeft.y, topRight.x, topRight.y, bottomRight.x, bottomRight.y, bottomLeft.x, bottomLeft.y);
+    quad(topLeft.x, topLeft.y, topRight.x, topRight.y, bottomRight.x, bottomRight.y, bottomLeft.x, bottomLeft.y);  //  Initialize door
 
     if (isOpening) {
       animateOpening();
@@ -39,8 +39,7 @@ class Door {
   }
 
   void animateOpening() {
-    // Move topRight and bottomRight corners left and adjust y for perspective
-    if (topRight.x > topLeft.x + 30) {  // Stop opening at the limit
+    if (topRight.x > topLeft.x + 30) {  // Opening limit
       topRight.x -= 2;                  // Move right side corners to the left
       bottomRight.x -= 2;
 
@@ -53,14 +52,14 @@ class Door {
 
   void animateClosing() {
     // Check if the door has almost returned to its original position
-    if (topRight.x < initialTopRight.x - 2) { // Slight buffer for smooth transition
+    if (topRight.x < initialTopRight.x - 2) { 
       topRight.x += 2;                  
       bottomRight.x += 2;
 
       topRight.y -= 0.5;                
       bottomRight.y += 0.5;
     } else {
-      // Directly reset to ensure exact original coordinates
+      // Reset to ensure original coordinates
       topRight.set(initialTopRight);
       bottomRight.set(initialBottomRight);
       isClosing = false;  // Stop the animation when it reaches the original position

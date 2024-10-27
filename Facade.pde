@@ -97,7 +97,7 @@ class Facade {
     rect((sizeX / 10) * 6, sizeY - 520, 35, 420);
     for (int y = sizeY - 520 + 35; y <= sizeY - 100 - 35; y += 35) {
       stroke(#B5B5B5); // Set stroke color to light gray
-      line((sizeX / 10) * 6, y, ((sizeX / 10) * 6) + 33, y); // Draw horizontal line with adjusted length
+      line((sizeX / 10) * 6, y, ((sizeX / 10) * 6) + 33, y); // Draw horizontal line
     }
 
     noStroke();

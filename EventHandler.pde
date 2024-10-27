@@ -2,6 +2,7 @@ class EventHandler {
   Sky sky;
   Door door;
   Facade facade;
+  Tree tree;
 
   boolean isDay;  // Track whether it's day or night
 
@@ -9,19 +10,25 @@ class EventHandler {
     sky = new Sky(sizeX, sizeY);  // Initialize the sky
     door = new Door(((sizeX / 10) * 4) + 30, sizeY - 310, ((sizeX / 10) * 6) - 30, sizeY - 310, ((sizeX / 10) * 6) - 30, 555, ((sizeX / 10) * 4) + 30, 555);
     facade = new Facade(sizeX, sizeY); // Initialize the Facade
+    tree = new Tree((sizeX /10) * 9, 650);  // Initialize tree position
   }
+
 
   void display() {
     isDay = sky.update();  // Update sky and check if it's day
     sky.display();         // Display the sky
     facade.display();      // Display the facade
     door.display();        // Display the door
+    tree.display();        // Display the tree
   }
+
 
   void triggerSky() {
     sky.change();  // Trigger sky change
     door.closed(); // Close the door if it's nighttime
+    tree.grow();   // Trigger the tree's growth on day/night
   }
+
 
   void triggerDoor() {
     if (isDay) {
