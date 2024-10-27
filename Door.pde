@@ -17,10 +17,14 @@ class Door {
   }
 
   void display() {
-    fill(200, 150, 50);  // Door color
+    fill(#554011);  // Door color
     noStroke();
-    quad(topLeft.x, topLeft.y, topRight.x, topRight.y, bottomRight.x, bottomRight.y, bottomLeft.x, bottomLeft.y);  //  Initialize door
+    quad(topLeft.x, topLeft.y, topRight.x, topRight.y, bottomRight.x, bottomRight.y, bottomLeft.x, bottomLeft.y);  // Draw door
 
+    // Draw window on the door
+    drawWindow();
+
+    // Animate the door if it's opening or closing
     if (isOpening) {
       animateOpening();
     } else if (isClosing) {
@@ -51,7 +55,6 @@ class Door {
   }
 
   void animateClosing() {
-    // Check if the door has almost returned to its original position
     if (topRight.x < initialTopRight.x - 2) { 
       topRight.x += 2;                  
       bottomRight.x += 2;
@@ -64,5 +67,20 @@ class Door {
       bottomRight.set(initialBottomRight);
       isClosing = false;  // Stop the animation when it reaches the original position
     }
+  }
+
+  void drawWindow() {
+    // Calculate window corners based on the current door coordinates
+    PVector windowTopLeft = PVector.lerp(topLeft, topRight, 0.35).lerp(bottomLeft,0.2);
+    PVector windowTopRight = PVector.lerp(topLeft, topRight, 0.65).lerp(bottomLeft, 0.2);
+    PVector windowBottomRight = PVector.lerp(bottomLeft, bottomRight, 0.65).lerp(topLeft, 0.2);
+    PVector windowBottomLeft = PVector.lerp(bottomLeft, bottomRight, 0.35).lerp(topLeft, 0.2);
+
+    // Draw the window quad on the door
+    fill(150, 150, 150, 200);  // Window color 
+    quad(windowTopLeft.x, windowTopLeft.y, 
+         windowTopRight.x, windowTopRight.y, 
+         windowBottomRight.x, windowBottomRight.y, 
+         windowBottomLeft.x, windowBottomLeft.y);
   }
 }
