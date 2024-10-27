@@ -23,6 +23,7 @@ class EventHandler {
   void triggerSky() {
     sky.change();  // Trigger sky change
     door.closed(); // Close the door if it's nighttime
+    lights.toggleOff(); // Turn the lights off if it is daytime
   }
 
   void triggerDoor() {
@@ -32,7 +33,7 @@ class EventHandler {
   }
   void toggleLights(){
     if(!isDay){
-      lights.toggle();
+      lights.toggle(); //Toggle the lights when it is nighttime
     }
   }
 }
