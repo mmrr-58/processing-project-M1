@@ -22,9 +22,10 @@ class Facade {
       color gradientColor = lerpColor(color(#A2A2A2), color(#505050), interpolation);  // Lerp between light gray and dark blue
 
       stroke(gradientColor);  // Set stroke color for the gradient line
-      noFill();
       line(0, i, sizeX, i);   // Draw a line across the width of the roof
+      noStroke(); // Prevents accumulation of stroke on each line in the following elements
     }
+
 
     // Left side wall gradient following the quad shape with new colors
     for (int i = 0; i < 100; i++) {
@@ -85,20 +86,33 @@ class Facade {
     rect(0, sizeY-500, 20, 360);
     rect(sizeX-20, sizeY-500, 20, 360);
 
-    // First column
+    // First column with horizontal lines
+    fill(#CBCBCB);  // Fill for column
+    noStroke();
     rect(((sizeX / 10) * 4) - 35, sizeY - 520, 35, 420);
-    for (int y = sizeY - 520 + 35; y <= sizeY - 100 - 35; y += 35) {
-      stroke(#B5B5B5); // Set stroke color to light gray
-      line(((sizeX / 10) * 4) - 35, y, ((sizeX / 10) * 4)-2, y); // Draw horizontal line with adjusted length
-    }
 
-    // Second column
+    // Draw horizontal lines
+    for (int y = sizeY - 520 + 35; y <= sizeY - 100 - 35; y += 35) {
+      stroke(#B5B5B5); // Set stroke color for horizontal lines
+      strokeWeight(1); // Set a consistent stroke weight
+      line(((sizeX / 10) * 4) - 33, y, ((sizeX / 10) * 4), y); // Draw line with fixed length within the column
+    }
+    noStroke(); // Turn off stroke after drawing the lines
+
+    // Second column with horizontal lines
+    fill(#CBCBCB);  // Fill for second column
     noStroke();
     rect((sizeX / 10) * 6, sizeY - 520, 35, 420);
+
+    // Draw horizontal lines
     for (int y = sizeY - 520 + 35; y <= sizeY - 100 - 35; y += 35) {
-      stroke(#B5B5B5); // Set stroke color to light gray
-      line((sizeX / 10) * 6, y, ((sizeX / 10) * 6) + 33, y); // Draw horizontal line
+      stroke(#B5B5B5); // Set stroke color for horizontal lines
+      strokeWeight(1); // Set a consistent stroke weight
+      line((sizeX / 10) * 6 + 2, y, ((sizeX / 10) * 6) + 33, y); // Draw line with fixed length within the column
     }
+    noStroke(); // Turn off stroke after drawing the lines
+
+
 
     noStroke();
     fill(#C1A12A);  //  Fill for columns 3D
@@ -121,7 +135,8 @@ class Facade {
     translate(((2*sizeX)/5)+20, sizeY/3);
     scale(1.2);
     PImage mrFrintage = loadImage("mrFrintage.png");
-    image(mrFrintage, 0,0);
+    image(mrFrintage, 0, 0);
     popMatrix();
+    noStroke();
   }
 }

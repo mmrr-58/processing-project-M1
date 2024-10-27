@@ -13,6 +13,6 @@ class Pebble {
   void display() {
     fill(pebbleColor);
     noStroke();
-    ellipse(posX, posY, scale * 5, scale * 3); 
+    ellipse(posX, posY, scale * 5, scale * 3);
   }
 }

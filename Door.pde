@@ -1,6 +1,6 @@
 class Door {
   PVector topLeft, topRight, bottomRight, bottomLeft;
-  PVector initialTopRight, initialBottomRight; 
+  PVector initialTopRight, initialBottomRight;
   boolean isOpening = false;
   boolean isClosing = false;
 
@@ -10,7 +10,7 @@ class Door {
     topRight = new PVector(x2, y2);
     bottomRight = new PVector(x3, y3);
     bottomLeft = new PVector(x4, y4);
-    
+
     // Store initial positions for precise resetting
     initialTopRight = topRight.copy();
     initialBottomRight = bottomRight.copy();
@@ -55,11 +55,11 @@ class Door {
   }
 
   void animateClosing() {
-    if (topRight.x < initialTopRight.x - 2) { 
-      topRight.x += 2;                  
+    if (topRight.x < initialTopRight.x - 2) {
+      topRight.x += 2;
       bottomRight.x += 2;
 
-      topRight.y -= 0.5;                
+      topRight.y -= 0.5;
       bottomRight.y += 0.5;
     } else {
       // Reset to ensure original coordinates
@@ -71,16 +71,16 @@ class Door {
 
   void drawWindow() {
     // Calculate window corners based on the current door coordinates
-    PVector windowTopLeft = PVector.lerp(topLeft, topRight, 0.35).lerp(bottomLeft,0.2);
+    PVector windowTopLeft = PVector.lerp(topLeft, topRight, 0.35).lerp(bottomLeft, 0.2);
     PVector windowTopRight = PVector.lerp(topLeft, topRight, 0.65).lerp(bottomLeft, 0.2);
     PVector windowBottomRight = PVector.lerp(bottomLeft, bottomRight, 0.65).lerp(topLeft, 0.2);
     PVector windowBottomLeft = PVector.lerp(bottomLeft, bottomRight, 0.35).lerp(topLeft, 0.2);
 
     // Draw the window quad on the door
-    fill(150, 150, 150, 200);  // Window color 
-    quad(windowTopLeft.x, windowTopLeft.y, 
-         windowTopRight.x, windowTopRight.y, 
-         windowBottomRight.x, windowBottomRight.y, 
-         windowBottomLeft.x, windowBottomLeft.y);
+    fill(150, 150, 150, 200);  // Window color
+    quad(windowTopLeft.x, windowTopLeft.y,
+      windowTopRight.x, windowTopRight.y,
+      windowBottomRight.x, windowBottomRight.y,
+      windowBottomLeft.x, windowBottomLeft.y);
   }
 }
