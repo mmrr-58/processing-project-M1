@@ -4,6 +4,7 @@ class EventHandler {
   Facade facade;
   Lights lights;
   Tree tree;
+  Bike bike1;
   Pebble[] pebbles;  // Array to hold multiple pebbles
 
   boolean isDay;  // Track whether it's day or night
@@ -14,6 +15,7 @@ class EventHandler {
     facade = new Facade(sizeX, sizeY); // Initialize the Facade
     lights = new Lights(sizeX, sizeY); // Initialize the lights
     tree = new Tree((sizeX / 10) * 9, 650);  // Initialize tree position
+    bike1 = new Bike(sizeX,sizeY);
 
     // Initialize pebbles
     int numPebbles = 3000;
@@ -34,7 +36,7 @@ class EventHandler {
     facade.display();      // Display the facade
     door.display();        // Display the door
     lights.display();      // Display the lights
-
+    bike1.display();
     // Display each pebble
     for (Pebble pebble : pebbles) {
       pebble.display();

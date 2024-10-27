@@ -115,5 +115,13 @@ class Facade {
       ((sizeX / 10) * 4)+30, sizeY - 310,
       (sizeX / 10) * 4, sizeY - 330,
       (sizeX / 10) * 6, sizeY - 330);
+
+    //Import and display logo image
+    pushMatrix();
+    translate(((2*sizeX)/5)+20, sizeY/3);
+    scale(1.2);
+    PImage mrFrintage = loadImage("mrFrintage.png");
+    image(mrFrintage, 0,0);
+    popMatrix();
   }
 }

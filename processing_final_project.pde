@@ -6,7 +6,7 @@ void setup() {
 }
 
 void draw() {
-  events.display();  // Display and update the sky and door
+  events.display();// Display and update the sky and door
 }
 
 // Handle key press to trigger events
