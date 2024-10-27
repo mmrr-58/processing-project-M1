@@ -6,7 +6,7 @@ void setup() {
 }
 
 void draw() {
-  events.display();  // Display the event handler
+  events.display();  // Display and update the sky and door
 }
 
 // Handle key press to trigger events
@@ -16,5 +16,8 @@ void keyPressed() {
   }
   if (key == 'o') {
     events.triggerDoor();  //  Trigger the door change when key "o" is pressed
+  }
+  if (key == 'l'){
+    events.toggleLights(); // 
   }
 }
