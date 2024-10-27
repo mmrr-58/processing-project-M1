@@ -1,3 +1,7 @@
+// The Bike class holds the design and the bike, as well as the interactions. 
+// To avoid repetition, the bikes are drawn with a random color. 
+// When the user clicks on the bike in the window, another bike rolls across the screen.
+
 class Bike {
   float x, y;
   int[] bikeColor;

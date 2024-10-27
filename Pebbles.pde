@@ -1,3 +1,5 @@
+// Pebbles is an aesthetic class that draws a series of 3000 pebbles on the floor, adding some design to the final project
+
 class Pebble {
   float posX, posY;
   color pebbleColor;

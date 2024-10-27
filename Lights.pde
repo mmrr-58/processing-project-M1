@@ -42,7 +42,8 @@ class Lights {
     glaze = #b8b597;
     glow = 0;
   }
-
+  
+// Series of lamps on a single bar
   void lamp1() {
     pushMatrix();
     translate((3*x)/4, y/2);
@@ -126,6 +127,7 @@ class Lights {
     popMatrix();
   }
 
+// Ball lights
   void lamp3() {
     pushMatrix();
     translate(x/5, ((3*y)-40)/4);
