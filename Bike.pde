@@ -45,7 +45,7 @@ class Bike {
 
   // Method to move the bike across the screen
   void moveAcrossScreen() {
-    x += 5;  // Move to the right
+    x += 10;  // Move to the right
     display();
     if (x > 1300) {  // Stop if bike2 reaches the screen edge
       x = -100;       // Reset to starting position off-screen

@@ -1,3 +1,12 @@
+//  Code for final assignment of Module 1, Intro to Programming
+//
+//  Assignment made by Marek Roque s3178498 and Rodrigo Gonzalez s2871688
+//
+//  The main class does not hold much but it's the most important, here all 
+//  the interactions made directly by the user are sent to the event handler class, 
+//  where the rest of the classes interact with eachother.
+ 
+
 EventHandler events;
 
 void setup() {

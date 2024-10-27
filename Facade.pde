@@ -1,3 +1,6 @@
+//  The Facade class is the building itself in the design. 
+//  It has one method display which draws every wall in the building.
+
 
 class Facade {
   int sizeX, sizeY;

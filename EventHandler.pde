@@ -1,3 +1,8 @@
+//  The Event Handler class creates most other classes in the drawing, so that they may interact with each other. 
+//  The main methods include displaying every other class, triggering the sky and door animation, 
+//  and toggling the lights on and off.
+
+
 class EventHandler {
   Sky sky;
   Door door;
@@ -80,12 +85,6 @@ class EventHandler {
     if (mousePosX >= bike1.x - hitboxSize && mousePosX <= bike1.x + hitboxSize &&
       mousePosY >= bike1.y - hitboxSize && mousePosY <= bike1.y + hitboxSize) {
       triggerBike2();  // Trigger bike2 movement if bike1 is clicked
-    }
-
-    // Check if click is within door coordinates to open the door
-    if (mousePosX >= door.topLeft.x && mousePosX <= door.topRight.x &&
-      mousePosY >= door.topLeft.y && mousePosY <= door.bottomLeft.y) {
-      triggerDoor();
     }
   }
 }

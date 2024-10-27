@@ -1,3 +1,8 @@
+//  The Sky class is the class that draws and transitions the sky from day to night. 
+//  The main methods in this class are the drawSunAndMoon method, where the celestial bodies are shown, 
+//  as well as the update method, that returns a boolean and is used throughout the project
+
+
 class Sky {
   color day, night;
   float rateChange;

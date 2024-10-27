@@ -1,3 +1,7 @@
+//  Door is the class that refers to the opening and closing door. It houses the design, as well as the 
+//  methods used to animate the opening and closing of the door.
+
+
 class Door {
   PVector topLeft, topRight, bottomRight, bottomLeft;
   PVector initialTopRight, initialBottomRight;

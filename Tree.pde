@@ -1,3 +1,10 @@
+//  Finally the Tree is the class used to denote the tree that is outside of the store, 
+//  and that changes with each passing day. The main methods are display and grow. 
+//  Where grow is used to increase the amount of branches by each passing day.
+//  This code was given as an example in one of the lectures, we thought it would be fun to add what the teacher showed. 
+//  It's his code
+
+
 class Tree {
   float posX, posY;
   float scale = 0.5;            // Larger initial scale for better spread

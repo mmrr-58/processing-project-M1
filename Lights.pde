@@ -1,3 +1,8 @@
+//  Lights is the class used to display and toggle the lights on and off. 
+//  The main methods include the drawing of lamp groups, as well as a change in some values 
+//  so that they are able to turn on at night.
+
+
 class Lights {
   boolean lightsOn;
   color lightBulb, glaze;
